@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}brews{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  {% for post in posts %}
+    <article>
+        <img src="{{ 'brew' }}" alt="a mighty brew">
+      <aside>{{post["description"]}}\nPosted by {{ post["author"] }} on {{ post["created"].strftime("%b %d, %Y at %I:%M%p") }}</aside>
+    </article>
+  {% endfor %}
+{% endblock content %}

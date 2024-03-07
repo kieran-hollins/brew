@@ -4,6 +4,8 @@ from flask import (
     render_template,
     request,
     url_for,
+    Response,
+    send_file
 )
 
 from brew.database import get_db
@@ -15,11 +17,10 @@ def create():
     if request.method == "POST":
         author = request.form['author'] or "Anonymous"
         title = request.form['title']
-        image= request.files['brew']
+        image = request.files['brew']
         description = request.form['content']
 
         if image:
-            #filename = secure_filename(brew.filename)
             image_blob = image.read()
 
             try:
@@ -33,7 +34,6 @@ def create():
             except Exception as e:
                 print(f"Error: {e}")
 
-
             return redirect(url_for("posts.posts"))
         
     return render_template("posts/create.html")
@@ -42,6 +42,22 @@ def create():
 def posts():
     db = get_db()
     posts = db.execute(
-        "SELECT author, title, brew, content, created FROM posts ORDER BY created DESC"
+        "SELECT id, author, title, brew, content, created FROM posts ORDER BY created DESC"
     ).fetchall()
     return render_template("posts/posts.html", posts=posts)
+
+# @bp.route("/image/<int:post_id>")
+# def serve_image(post_id):
+#     db = get_db()
+#     img = db.execute(
+#         "SELECT brew FROM posts WHERE id = ?", (post_id,)
+#     ).fetchall()
+#     return Response(img, mimetype='image')
+
+@bp.route("/image/<int:post_id>")
+def serve_image(post_id):
+    db = get_db()
+    img = db.execute(
+        "SELECT brew FROM posts WHERE id = ?", (post_id,)
+    ).fetchall()
+    return send_file()

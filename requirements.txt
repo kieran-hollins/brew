@@ -4,3 +4,4 @@ mysqlclient
 Flask-MySQLdb
 click
 python-dotenv
+google-cloud-storage

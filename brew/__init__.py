@@ -7,6 +7,7 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     app.config.from_prefixed_env()
+    
 
     from brew import pages, posts, database # Import here to avoid circular import errors
     

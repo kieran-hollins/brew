@@ -2,3 +2,5 @@ Flask==3.0.2
 PyMySQL
 mysqlclient
 Flask-MySQLdb
+click
+python-dotenv

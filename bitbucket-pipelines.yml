@@ -1,0 +1,9 @@
+image: python3.10
+
+pipelines:
+  default:
+    - step:
+      script:
+        - python3 -m venv
+        - source venv/bin/activate
+        - -m pip install -r requirements.txt

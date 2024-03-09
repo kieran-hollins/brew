@@ -4,8 +4,7 @@ from flask import (
     render_template,
     request,
     url_for,
-    Response,
-    send_file
+    Response
 )
 
 from brew.database import get_db
@@ -46,18 +45,11 @@ def posts():
     ).fetchall()
     return render_template("posts/posts.html", posts=posts)
 
-# @bp.route("/image/<int:post_id>")
-# def serve_image(post_id):
-#     db = get_db()
-#     img = db.execute(
-#         "SELECT brew FROM posts WHERE id = ?", (post_id,)
-#     ).fetchall()
-#     return Response(img, mimetype='image')
-
 @bp.route("/image/<int:post_id>")
 def serve_image(post_id):
     db = get_db()
     img = db.execute(
         "SELECT brew FROM posts WHERE id = ?", (post_id,)
-    ).fetchall()
-    return send_file()
+    ).fetchone()
+    return Response(img, mimetype='image/jpg')
+

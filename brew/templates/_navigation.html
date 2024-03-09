@@ -1,6 +1,10 @@
-<nav>
-  <ul>
-    <li><a href="{{ url_for('posts.posts') }}">Home</a></li>
-    <li><a href="{{ url_for('posts.create') }}">Add Post</a></li>
+<nav style="width:98%">
+  <ul style="list-style-type: none; display: flex; flex-direction: row; gap:2em;">
+    <li><a href="{{ url_for('posts.posts') }}">
+        <h3>Home</h3>
+      </a></li>
+    <li><a href="{{ url_for('posts.create') }}">
+        <h3>Add Post</h3>
+      </a></li>
   </ul>
 </nav>

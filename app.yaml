@@ -1,3 +1,1 @@
 runtime: python310
-env_variables:
-  CLOUD_STORAGE_BUCKET: brew-image-buckets

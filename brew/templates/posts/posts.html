@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h2>{% block title %}brews{% endblock title %}</h2>
+<a href="{{ url_for('posts.posts') }}">
+  <h2>{% block title %}all brews{% endblock title %}</h2>
+</a>
 {% endblock header %}
 
 {% block content %}
 {% for post in posts %}
 <article>
-  <img src="{{ url_for('posts.serve_image', post_id=post.id) }}" alt="a mighty brew pic">
-  <aside>{{post["title"]}}\n{{post["content"]}}\nPosted by {{ post["author"] }} on {{ post["created"].strftime("%b %d,
-    %Y at %I:%M%p")
-    }}</aside>
+  <h2 class="post-title">{{post["title"]}}</h2>
+  <h3 class="post-author">Posted by {{ post["author"] }} on {{ post["created"].strftime("%b %d, %Y at %I:%M%p") }}</h3>
+  <div class="post-image-container"><img src="{{ url_for('posts.serve_image', post_id=post.id) }}"
+      alt="Image for {{ post.title }}"></div>
+  <div class="description-box">
+    <p>{{post["content"]}}</p>
+  </div>
+  <hr>
 </article>
+
+<hr>
 {% endfor %}
 {% endblock content %}

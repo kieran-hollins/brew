@@ -10,6 +10,7 @@ pipelines:
           - pip install -r requirements.txt #  Install Dependencies
     - step:
         name: Deploy to Railway
+        deployment: production
         script:
           - bash <(curl -fsSL cli.new) # Install Railway CLI
           - RAILWAY_TOKEN=$RAILWAY_TOKEN railway up # Deploy to Railway

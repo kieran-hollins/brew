@@ -9,6 +9,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "brew:create_app"]
+#CMD ["gunicorn", "brew:create_app"]
 
 EXPOSE 8000

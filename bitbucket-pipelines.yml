@@ -13,4 +13,4 @@ pipelines:
         deployment: production
         script:
           - bash <(curl -fsSL cli.new) # Install Railway CLI
-          - RAILWAY_TOKEN=$RAILWAY_TOKEN railway up --service delightful-instance # Deploy to Railway
+          - RAILWAY_TOKEN=$RAILWAY_TOKEN railway up --service=brew-ci -d # Deploy to Railway

@@ -3,8 +3,15 @@ image: python3.10
 pipelines:
   default:
     - step:
+      name: build
       script:
         - python3 -m venv
         - source venv/bin/activate
         - -m pip install -r requirements.txt
         - gunicorn -w 4 'brew:create_app()'
+        - python3 -m flask --app brew init-db
+    - step:
+      name: Deploy to Railway
+      script:
+        - bash <(curl -fsSL cli.new)
+        - RAILWAY_TOKEN=$RAILWAY_TOKEN railway up

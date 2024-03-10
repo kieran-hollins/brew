@@ -13,4 +13,4 @@ pipelines:
         deployment: production
         script:
           - bash <(curl -fsSL cli.new) # Install Railway CLI
-          - RAILWAY_TOKEN=$RAILWAY_TOKEN railway up # Deploy to Railway
+          - RAILWAY_TOKEN=$RAILWAY_TOKEN railway up --service brew-bitbucket-ci.railway.internal # Deploy to Railway

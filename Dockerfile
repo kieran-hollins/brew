@@ -11,7 +11,7 @@ COPY . .
 ENV FLASK_APP=__init__.py
 
 CMD ["gunicorn", "brew:create_app"]
-RUN ["python3", "flask", "--app", "brew init db"]
+RUN ["python3", "-m", "flask", "--app", "brew init db"]
 
 
 EXPOSE 8000

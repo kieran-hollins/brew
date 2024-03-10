@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <h2>{% block title %}Home{% endblock title %}</h2>
+<h2>{% block title %}Home{% endblock title %}</h2>
 {% endblock header %}
 
 {% block content %}
 
-  <p>
+<p>
 
-    Learn more about this project by visiting the <a href="{{ url_for('pages.about') }}">About page</a>.
+  This application was built in order to demonstrate continous integration but please use it as a platform to show off
+  pictures of latte art, beans and all things coffee.
 
-  </p>
+  Go to <a href="{{ url_for('posts.posts') }}">home to view all posts.</a>
+
+</p>
 
 {% endblock content %}

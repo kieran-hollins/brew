@@ -161,3 +161,6 @@ cython_debug/
 
 # local db
 .sqlite
+
+# don't deploy your token
+bitbucket-token

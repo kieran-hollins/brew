@@ -1,4 +1,5 @@
 import os
+import click
 from dotenv import load_dotenv
 from flask import Flask
 
@@ -12,6 +13,8 @@ def create_app():
     from brew import pages, posts, database # Import here to avoid circular import errors
     
     database.init_app(app)
+
+    click.Command("init-db")
 
     app.register_blueprint(pages.bp)
     app.register_blueprint(posts.bp)

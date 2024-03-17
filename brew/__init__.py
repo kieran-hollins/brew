@@ -14,7 +14,7 @@ def create_app():
     
     database.init_app(app)
 
-    click.Command("init-db")
+    #click.Command("init-db")
 
     app.register_blueprint(pages.bp)
     app.register_blueprint(posts.bp)

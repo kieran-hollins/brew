@@ -1,7 +1,7 @@
 [build]
-builder = "NIXPACKS"
+builder = "nixpacks"
 buildCommand = "gunicorn \"brew:create_app()\""
-dockerfilePath = "Dockerfile"
+#dockerfilePath = "Dockerfile"
 
 [deploy]
 numReplicas = 1

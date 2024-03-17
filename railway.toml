@@ -1,6 +1,6 @@
 [build]
-builder = "DOCKERFILE"
-#buildCommand = "gunicorn \"brew:create_app()\""
+builder = "NIXPACKS"
+buildCommand = "gunicorn \"brew:create_app()\""
 dockerfilePath = "Dockerfile"
 
 [deploy]
